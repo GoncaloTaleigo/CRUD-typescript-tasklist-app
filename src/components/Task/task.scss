@@ -1,0 +1,6 @@
+@use "/src/styles/variables.scss" as *;
+.task{
+    background-color: $white;
+    padding: 1rem;
+    border-radius: 1rem
+}
