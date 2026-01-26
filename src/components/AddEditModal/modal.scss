@@ -1,9 +1,104 @@
-
-.overlay{
+.overlay {
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
-   background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+
+
+    .modal{
+        background-color: white;
+        border-radius: 1rem;
+        margin-top: 5rem;
+        width: 400px;
+        padding: 2rem;
+        height: max-content;
+        display: flex;
+        flex-direction: column;
+        gap:1.5rem
+    }
+
+    .modal__top{
+        display: flex;
+        justify-content: space-between;
+
+        button{
+            all:unset;
+            cursor: pointer;
+        }
+    }
+
+    .modal__body{
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        input{
+            padding: 0.5rem;
+            border-radius: 0.2rem;
+            border: 1px solid $secondary-color;
+            outline: none;
+        }
+    }
+
+
+    .modal__buttons{
+        display: flex;
+        gap: 1rem;
+    }
+
+    .high,.medium,.low{
+        background-color: white;
+        border-radius: 0.2rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        flex: 1;
+        font-weight: bold;
+    }
+
+    .high{
+        color:$error-color;
+        border: 1px solid $error-color;
+
+        &:hover{
+            background-color: $error-color;
+            color: white;
+        }
+    }
+
+    .medium{
+        color: $warning-color;
+        border: 1px solid $warning-color;
+
+         &:hover{
+            background-color: $warning-color;
+            color: white;
+        }
+    }
+
+
+    .low{
+        color: $success-color;
+        border: 1px solid $success-color;
+
+         &:hover{
+            background-color: $success-color;
+            color: white;
+        }
+    }
+
+    .add{
+        background-color: $tertiary-color;
+        border: none;
+        border-radius: 0.2rem;
+        color: white;
+        font-weight: bold;
+        padding: 0.5rem;
+
+    }
+
+
 }

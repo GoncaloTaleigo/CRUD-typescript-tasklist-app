@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 
-const initialState=[{id:1,taskName:"Go to gym", priority:"High", status:"toDo"}]
+const initialState=[];
 
 
 const taskSlice = createSlice({
@@ -11,7 +11,7 @@ const taskSlice = createSlice({
     initialState,
     reducers: {
         addTask: (state,action) => {
-            console.log("add task")
+            state.push(action.payload)
         },
 
         removeTask: (state,action) => {

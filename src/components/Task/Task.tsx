@@ -1,18 +1,21 @@
 import React from 'react'
 import "./Task.scss";
 
-type Props = {}
+type Props = {
+  taskName:string,
+  priority:string
+}
 
-const Task = (props: Props) => {
+const Task = ({taskName,priority}: Props) => {
   return (
     <div className='task'>
         <div className="task__name">
             <span>Task</span>
-            <span>Go to the gym</span>
+            <span>{taskName}</span>
         </div>
         <div className="task__priority">
             <span>Priority</span>
-            <span>High</span>
+            <span>{priority}</span>
         </div>
         <div className="task_status"></div>
         <div className="task__progress"></div>
