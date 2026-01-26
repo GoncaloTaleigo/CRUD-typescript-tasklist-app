@@ -1,2 +1,18 @@
 @use "styles/fonts.scss";
 @use "styles/variables.scss";
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins';
+}
