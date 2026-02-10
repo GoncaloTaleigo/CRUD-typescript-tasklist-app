@@ -1,14 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
+const STATUSES = ["To do", "In progress", "Done"]
 
-
-const initialState = [];
-
+const loadTasks = () => {
+  const savedTasks = localStorage.getItem("tasks");
+  return savedTasks ? JSON.parse(savedTasks) : [];
+};
 
 const taskSlice = createSlice({
     name: "tasks",
-    initialState,
+    initialState: loadTasks(),
     reducers: {
         addTask: (state, action) => {
             state.push(action.payload)
@@ -16,7 +18,7 @@ const taskSlice = createSlice({
 
         removeTask: (state, action) => {
             console.log("Removing:", action.payload);
-            state.splice(action.payload, 1);
+            return state.filter(task => task.id !== action.payload)
         },
 
         editTask: (state, action) => {
@@ -27,6 +29,15 @@ const taskSlice = createSlice({
                 Object.assign(task, updates);
             }
         },
+        updateStatus: (state, action) => {
+            const task = state.find(t => t.id === action.payload);
+            if (!task) return;
+
+            const currentIndex = STATUSES.indexOf(task.status);
+            const nextIndex = (currentIndex + 1) % STATUSES.length;
+
+            task.status = STATUSES[nextIndex];
+        }
 
     }
 
@@ -34,5 +45,5 @@ const taskSlice = createSlice({
 
 
 
-export const { addTask, removeTask, editTask } = taskSlice.actions;
+export const { addTask, removeTask, editTask, updateStatus } = taskSlice.actions;
 export default taskSlice.reducer;

@@ -29,7 +29,7 @@ const Modal = ({ close }: Props) => {
       id:crypto.randomUUID(),
       taskName:taskValue,
       priority:priority,
-      status: "To Do"
+      status: "To do"
     }
 
     dispatch(addTask(value))
@@ -59,7 +59,7 @@ const Modal = ({ close }: Props) => {
 
         </div>
 
-        <button className='add' onClick={handleAdd}>Add</button>
+        <button className='add' disabled={!taskValue.trim() || !priority} onClick={handleAdd}>Add</button>
 
       </div>
     </div>
