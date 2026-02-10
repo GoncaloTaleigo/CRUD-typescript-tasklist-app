@@ -1,12 +1,19 @@
 import React from 'react'
 import "./Task.scss";
+import { useDispatch } from 'react-redux';
 
 type Props = {
   taskName:string,
-  priority:string
+  priority:string,
+  status:string,
+  openDelete:() => void,
+  setDeleteValue:()=>void,
+  openEditModal:()=>void
 }
 
-const Task = ({taskName,priority}: Props) => {
+const Task = ({taskName,priority,status,openDelete,openEditModal}: Props) => {
+  
+  
   return (
     <div className='task'>
         <div className="task__name">
@@ -17,10 +24,17 @@ const Task = ({taskName,priority}: Props) => {
             <span>Priority</span>
             <span>{priority}</span>
         </div>
-        <div className="task_status"></div>
+        <div className="task__status">
+          <span>Status</span>
+          <span>{status}</span>
+        </div>
         <div className="task__progress"></div>
-        <div className="task__edit"></div>
-        <div className="task__delete"></div>
+        <div className='task__actions'>
+        <img onClick={openEditModal} src="../../../src/assets/icons/edit.svg" alt="" />
+        <img onClick={openDelete} src="../../../src/assets/icons/delete.svg" alt="" />
+
+        </div>
+
 
     </div>
   )

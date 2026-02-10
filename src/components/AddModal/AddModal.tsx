@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import "./modal.scss"
+import "./addModal.scss"
 import { useDispatch } from 'react-redux'
 import { addTask } from '../../Slices/taskSlice'
+
 
 type Props = {
   close: () => void,
@@ -14,15 +15,26 @@ const Modal = ({ close }: Props) => {
   const [taskValue, setTaskValue]=useState("");
   const [priority,setPriority]=useState("")
 
+
    const dispatch = useDispatch();
 
-  const handleClick=()=>{
+
+   const handlePriority=(value)=>{
+    setPriority(value);
+   }
+
+
+  const handleAdd=()=>{
     const value={
+      id:crypto.randomUUID(),
       taskName:taskValue,
-      priority:priority
+      priority:priority,
+      status: "To Do"
     }
 
     dispatch(addTask(value))
+
+    close();
 
   }
 
@@ -40,14 +52,14 @@ const Modal = ({ close }: Props) => {
           <input type="text" name='task' onChange={(e)=>setTaskValue(e.target.value)} />
           <label htmlFor="">Priority</label>
           <div className='modal__buttons'>
-            <button className='high' onClick={()=>setPriority("High")}>High</button>
-            <button className='medium' onClick={()=>setPriority("Medium")}>Medium</button>
-            <button className='low' onClick={()=>setPriority("Low")}>Low</button>
+            <button className={`high ${priority=="High"?'active':""}`} onClick={()=>handlePriority("High")}>High</button>
+            <button className={`medium ${priority=="Medium"?'active':""}`} onClick={()=>handlePriority("Medium")}>Medium</button>
+            <button className={`low ${priority=="Low"?'active':""}`} onClick={()=>handlePriority("Low")}>Low</button>
           </div>
 
         </div>
 
-        <button className='add' onClick={handleClick}>Add</button>
+        <button className='add' onClick={handleAdd}>Add</button>
 
       </div>
     </div>

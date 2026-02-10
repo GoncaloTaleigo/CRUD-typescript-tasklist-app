@@ -2,5 +2,23 @@
 .task{
     background-color: $white;
     padding: 1rem;
-    border-radius: 1rem
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task__name,.task__priority,.task__status{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.task__actions{
+    display: flex;
+    gap: 1rem;
+}
+
+.task__actions img{
+    cursor: pointer;
 }
