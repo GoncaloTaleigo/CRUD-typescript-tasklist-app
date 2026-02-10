@@ -1,104 +1,118 @@
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.2);
+.modal {
+    background-color: white;
+    border-radius: 1rem;
+    margin-top: 5rem;
+    width: 600px;
+    padding: 2rem;
+    height: max-content;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 1.5rem;
 
 
-    .modal{
-        background-color: white;
-        border-radius: 1rem;
-        margin-top: 5rem;
-        width: 400px;
-        padding: 2rem;
-        height: max-content;
-        display: flex;
-        flex-direction: column;
-        gap:1.5rem
-    }
-
-    .modal__top{
+    .modal__top {
         display: flex;
         justify-content: space-between;
 
-        button{
-            all:unset;
+        button {
+            all: unset;
             cursor: pointer;
         }
     }
 
-    .modal__body{
+    .modal__body {
         display: flex;
         flex-direction: column;
         gap: 1.5rem;
+        width: 70%;
 
-        input{
+        input {
             padding: 0.5rem;
-            border-radius: 0.2rem;
+            border-radius: 0.7rem;
             border: 1px solid $secondary-color;
             outline: none;
         }
     }
 
 
-    .modal__buttons{
+    .modal__buttons {
         display: flex;
+        justify-content: center;
         gap: 1rem;
     }
 
-    .high,.medium,.low{
+    .high,
+    .medium,
+    .low {
         background-color: white;
-        border-radius: 0.2rem;
+        border-radius: 0.5rem;
         cursor: pointer;
         padding: 0.5rem;
         flex: 1;
         font-weight: bold;
     }
 
-    .high{
-        color:$error-color;
+    .high {
+        color: $error-color;
         border: 1px solid $error-color;
 
-        &:hover{
+        &:hover {
+            background-color: $error-color;
+            color: white;
+        }
+
+        &.active {
             background-color: $error-color;
             color: white;
         }
     }
 
-    .medium{
+    .medium {
         color: $warning-color;
         border: 1px solid $warning-color;
 
-         &:hover{
+        &:hover {
+            background-color: $warning-color;
+            color: white;
+        }
+
+        &.active {
             background-color: $warning-color;
             color: white;
         }
     }
 
 
-    .low{
+    .low {
         color: $success-color;
         border: 1px solid $success-color;
 
-         &:hover{
+        &:hover {
+            background-color: $success-color;
+            color: white;
+        }
+
+
+        &.active {
             background-color: $success-color;
             color: white;
         }
     }
 
-    .add{
+    .add {
         background-color: $tertiary-color;
         border: none;
         border-radius: 0.2rem;
         color: white;
         font-weight: bold;
         padding: 0.5rem;
+        cursor: pointer;
 
     }
+
+
+
+
 
 
 }

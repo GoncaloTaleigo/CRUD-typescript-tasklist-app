@@ -1,6 +1,65 @@
 @use "/src/styles/variables.scss" as *;
-.task{
+
+.task {
     background-color: $white;
     padding: 1rem;
-    border-radius: 1rem
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task__name,
+.task__priority,
+.task__status {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+.task__name{
+    span:nth-child(2){
+        color: $primary-color;
+    }
+}
+
+.task__status .status {
+    color: $secondary-color;
+    background-color: $light-gray;
+    font-weight: bold;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+
+.task__actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.task__actions img {
+    cursor: pointer;
+}
+
+
+.task__priority {
+
+    .high {
+        color: $error-color;
+    }
+
+    .medium {
+        color: $warning-color;
+    }
+
+    .low {
+        color:  $success-color;
+    }
+}
+
+.text-gray{
+    color: $gray;
+
 }
