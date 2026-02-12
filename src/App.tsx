@@ -15,7 +15,6 @@ function App() {
   const [openEdit, setOpenEdit] = useState(false)
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
   const [deleteId, setDeleteId] = useState<string | number>(0);
-  const [editId, seteditId] = useState<string | number>(0);
   const [oldTask, setOldTask] = useState<TaskType | null>(null);
 
 
@@ -46,7 +45,7 @@ function App() {
                   priority={task.priority}
                   status={task.status}
                   openDelete={() => { setOpenDeleteModal(true); setDeleteId(task.id) }}
-                  openEditModal={() => { setOpenEdit(true); seteditId(task.id); setOldTask(task) }}
+                  openEditModal={() => { setOpenEdit(true); setOldTask(task) }}
 
                 />
               )
