@@ -9,7 +9,6 @@ type Props = {
   priority: string,
   status: string,
   openDelete: () => void,
-  setDeleteValue: () => void,
   openEditModal: () => void
 }
 

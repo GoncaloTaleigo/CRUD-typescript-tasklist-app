@@ -5,16 +5,13 @@ import "./delete.scss"
 import "../AddModal/addModal.scss"
 type Props = {
     close:()=>void,
-    deletedTask:number
+    deletedTask:string | number
 }
 
 const Delete = ({close,deletedTask}: Props) => {
  
   const dispatch = useDispatch();
 
-  const handleEdit=()=>{
-    console.log("Edit Modal");
-  }
   
   const handleDelete=(id:number)=>{
     dispatch(removeTask(id));

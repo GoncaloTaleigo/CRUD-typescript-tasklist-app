@@ -19,7 +19,7 @@ const Modal = ({ close }: Props) => {
    const dispatch = useDispatch();
 
 
-   const handlePriority=(value)=>{
+   const handlePriority=(value:string)=>{
     setPriority(value);
    }
 

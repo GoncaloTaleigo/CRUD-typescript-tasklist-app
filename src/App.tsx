@@ -1,25 +1,28 @@
-import { useState,useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import Task from './components/Task/Task'
 import './App.scss'
 import { useSelector } from 'react-redux'
 import AddModal from './components/AddModal/AddModal'
 import Delete from './components/DeleteTaskModal/Delete'
 import EditModal from './components/EditModal/EditModal'
+import type { TaskType } from "./types"
+import type { RootState } from "./store"
 
 function App() {
 
-  const tasks = useSelector((state) => state.tasks)
+  const tasks = useSelector((state: RootState) => state.tasks)
   const [openAdd, setOpenAdd] = useState(false)
   const [openEdit, setOpenEdit] = useState(false)
   const [openDeleteModal, setOpenDeleteModal] = useState(false);
-  const [deleteId, setDeleteId] = useState(0);
-  const [editId, seteditId] = useState(0);
-  const [oldTask, setOldTask] = useState(null);
+  const [deleteId, setDeleteId] = useState<string | number>(0);
+  const [editId, seteditId] = useState<string | number>(0);
+  const [oldTask, setOldTask] = useState<TaskType | null>(null);
 
 
-useEffect(() => {
-  localStorage.setItem("tasks", JSON.stringify(tasks));
-}, [tasks]);
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   return (
     <>
@@ -34,7 +37,7 @@ useEffect(() => {
 
         <div className='container-tasklist__list'>
           {tasks.slice()
-            .reverse().map((task, index) => {
+            .reverse().map((task: TaskType) => {
               return (
                 <Task
                   key={task.id}
@@ -51,7 +54,8 @@ useEffect(() => {
         </div>
 
         {openAdd ? <AddModal close={() => setOpenAdd(!openAdd)} ></AddModal> : ""}
-        {openEdit ? <EditModal key={editId} task={oldTask} editTaskId={editId} close={() => { setOpenEdit(!openEdit) }}></EditModal> : ""}
+        {openEdit && oldTask && (<EditModal task={oldTask} close={() => setOpenEdit(false)} />
+        )}
         {openDeleteModal ? <Delete deletedTask={deleteId} close={() => setOpenDeleteModal(false)}></Delete> : ""}
 
 
