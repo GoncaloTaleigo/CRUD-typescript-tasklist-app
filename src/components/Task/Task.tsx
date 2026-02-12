@@ -1,4 +1,4 @@
-import "./Task.scss";
+import "./task.scss";
 import { useDispatch } from 'react-redux';
 import { updateStatus } from '../../Slices/taskSlice';
 
