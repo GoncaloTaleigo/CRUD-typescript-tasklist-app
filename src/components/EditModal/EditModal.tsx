@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import  { useState } from 'react'
 // import "./addModal.scss"
 import { useDispatch } from 'react-redux'
 import { editTask } from '../../Slices/taskSlice'
