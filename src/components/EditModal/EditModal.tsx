@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 // import "./addModal.scss"
 import { useDispatch } from 'react-redux'
 import { editTask } from '../../Slices/taskSlice'
+import type { TaskType } from '../../types'
 
 
 
 type Props = {
     close: () => void,
-    task: object,
+    task: TaskType,
 
 
 }
@@ -19,7 +20,7 @@ const EditModal = ({ close, task }: Props) => {
     const dispatch = useDispatch();
 
 
-    const handlePriority = (value) => {
+    const handlePriority = (value:string) => {
         setPriority(value);
     }
 
