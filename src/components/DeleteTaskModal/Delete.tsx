@@ -1,4 +1,3 @@
-import React from 'react'
 import { removeTask } from '../../Slices/taskSlice';
 import { useDispatch } from 'react-redux';
 import "./delete.scss"
@@ -13,7 +12,7 @@ const Delete = ({close,deletedTask}: Props) => {
   const dispatch = useDispatch();
 
   
-  const handleDelete=(id:number)=>{
+  const handleDelete = (id: string | number) =>{
     dispatch(removeTask(id));
     close();
   }
